@@ -1,8 +1,7 @@
-#dReadMore by DSekon
+# dReadMore by DSekon
 ##### jQuery plugin for collapsing and expanding long blocks of text
-##Getting Started With dReadmore.js
-
-###Include Files To Website
+## Getting Started With dReadmore.js
+### Include Files To Website
 
 After that we need to include dReadmore JS file to our website. In your html file:
 ```html
@@ -17,7 +16,7 @@ After that we need to include dReadmore JS file to our website. In your html fil
 </body>
 </html>
 ```
-###Add HTML Layout
+### Add HTML Layout
 Now, we need to add basic dReadmore layout:
 ```html
 <div class="d-readmore-wrapp">
@@ -30,7 +29,7 @@ Now, we need to add basic dReadmore layout:
 </div>
 ```
 
-###Add CSS Styles
+### Add CSS Styles
 After that, we may need to set dReadmore min-height and overflow in your CSS file:
 ```css
 .d-readmore {
@@ -39,8 +38,8 @@ After that, we may need to set dReadmore min-height and overflow in your CSS fil
 }
 ```
 Set a **min-height** based on lines, you could do so in CSS: **1px - 1 line**
-##Documentation
-###Options
+## Documentation
+### Options
 Let's look on list of all available parameters:
 
 | Parameter | Type | Default | Description |
@@ -64,7 +63,7 @@ Example:
         timing: "cubic-bezier(0.42,0,0.58,1)"
     });
 
-###Callbacks
+### Callbacks
 After that we need to include dReadmore JS file to our website. In your html file:
 
     // beforeToggle called after a more or less link is clicked, 
@@ -81,7 +80,7 @@ After that we need to include dReadmore JS file to our website. In your html fil
             console.log("true")
         }
     }
-###Destroy
+### Destroy
 If you really want to be that guy...
 
     $(".d-readmore").dReadmore('destroy');
