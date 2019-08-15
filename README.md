@@ -56,13 +56,13 @@ Example:
 
 ```javascript
 $(".d-readmore").dReadmore({
-        id: 3,
-        startOpen: true,
-        moreText: "Down",
-        lessText: "Up",
-        duration: 300,
-        timing: "cubic-bezier(0.42,0,0.58,1)"
-    });
+    id: 3,
+    startOpen: true,
+    moreText: "Down",
+    lessText: "Up",
+    duration: 300,
+    timing: "cubic-bezier(0.42,0,0.58,1)"
+});
 ```
 
 ### Callbacks
