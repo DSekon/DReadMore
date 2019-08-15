@@ -20,9 +20,11 @@
             heightMin = parseFloat($el.css("min-height")) * parseFloat($el.css("line-height")) / parseFloat($el.css("font-size")),
             heightMax = parseFloat($el.find(".d-readmove_text-wrapp").css("height")) / parseFloat($el.css("font-size"));
 
-        $el.attr("d-readmore-expanded", $el.data('dReadmore').expanded);
+        if ($el.data('dReadmore').closeIfChangeWidth) {
+            $el.attr("d-readmore-expanded", $el.data('dReadmore').expanded);
+        }
 
-        if ($el.data('dReadmore').expanded) {
+        if ($el.attr("d-readmore-expanded") === "true") {
             $btn.html($element.data('dReadmore').lessText);
         } else {
             $btn.html($element.data('dReadmore').moreText);
@@ -30,7 +32,7 @@
 
         if (parseFloat($el.css("min-height"))) {
             $el.css({
-                "height": ($el.data('dReadmore').expanded ? heightMax : heightMin) + "em",
+                "height": (($el.attr("d-readmore-expanded") === "true") ? heightMax : heightMin) + "em",
                 "min-height": "none"
             });
 
@@ -56,16 +58,8 @@
         var currentMaxHeight = parseFloat($el.css("min-height")) * parseFloat($el.css("line-height")) / parseFloat($el.css("font-size")),
             currentHeight = parseFloat($el.find(".d-readmove_text-wrapp").css("height"))
 
-        $el.css({
-            "min-height": "",
-        });
-
         if ($el.data('dReadmore').heightMin != currentMaxHeight || $el.data('dReadmore').heightMax != currentHeight) {
             initMinMax($el);
-        } else {
-            $el.css({
-                "min-height": "none"
-            });
         }
     }
 
@@ -90,13 +84,13 @@
                     "height": $element.data('dReadmore').heightMax + "em"
                 });
 
-                $(this).addClass("d-readmore-open").html($element.data('dReadmore').lessText);
+                $(this).html($element.data('dReadmore').lessText);
             } else {
                 $el.attr("d-readmore-expanded", false).css({
                     "height": $element.data('dReadmore').heightMin + "em"
                 });
 
-                $(this).removeClass("d-readmore-open").html($element.data('dReadmore').moreText);
+                $(this).html($element.data('dReadmore').moreText);
             }
 
             $element.on('transitionend', (function () {
@@ -125,6 +119,7 @@
                     lessText: "Close",
                     duration: 250,
                     timing: "ease",
+                    returnInitialState: false,
 
                     // callbacks
                     beforeToggle: function () {},
@@ -137,9 +132,9 @@
 
                 var $this = $(this),
                     $el = $this,
-                    $btn = $this.parent().find(".d-readmore_btn").attr("d-readmore-controls", settings.id);
+                    $btn = $this.parent().find(".d-readmore_btn").attr("d-readmore-controls-id", settings.id);
 
-                $(this).data('dReadmore', {
+                $this.data('dReadmore', {
                     target: $this,
                     id: settings.id,
                     btn: $btn,
@@ -147,6 +142,7 @@
                     moreText: settings.moreText,
                     lessText: settings.lessText,
                     duration: settings.duration,
+                    closeIfChangeWidth: settings.closeIfChangeWidth,
                     heightMin: 0,
                     heightMax: 0,
                     beforeToggle: settings.beforeToggle,
@@ -165,8 +161,8 @@
             return this.each(function () {
 
                 var $this = $(this),
-                    data = $this.data('dReadmore'),
-                    $btn = $this.parent().find(".d-readmore_btn").removeAttr("d-readmore-controls");
+                    //                    data = $this.data('dReadmore'),
+                    $btn = $this.parent().find("." + $this.data('dReadmore').btnClass).removeAttr("d-readmore-controls-id");
 
                 $btn.unbind('click');
                 $this.removeData('dReadmore');
