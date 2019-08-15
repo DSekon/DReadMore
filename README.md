@@ -1,5 +1,5 @@
 # [dReadMore by DSekon](http://dsekon.ru/dReadmore/ "dReadMore by DSekon")
-[![GitHub version](https://badge.fury.io/gh/conventional-changelog%2Fstandard-version.svg)](https://github.com/DSekon/dReadmore)
+[![GitHub version](https://badge.fury.io/gh/DSekon%2FdReadmore.svg)](https://github.com/DSekon/dReadmore)
 #### jQuery plugin for collapsing and expanding long blocks of text
 ### [Demo](http://dsekon.ru/dReadmore/ "Demo")
 ## Getting Started With dReadmore.js
