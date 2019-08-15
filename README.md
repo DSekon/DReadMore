@@ -1,7 +1,9 @@
 #dReadMore by DSekon
 ##### jQuery plugin for collapsing and expanding long blocks of text
 ##Getting Started With dReadmore.js
+
 ###Include Files To Website
+
 After that we need to include dReadmore JS file to our website. In your html file:
 ```html
 <!DOCTYPE html>
