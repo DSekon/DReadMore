@@ -1,5 +1,4 @@
 # [dReadMore by DSekon](http://dsekon.ru/dReadmore/ "dReadMore by DSekon")
-![](https://img.shields.io/github/stars/pandao/editor.md.svg) ![] (https://img.shields.io/github/release/pandao/editor.md.svg)
 #### jQuery plugin for collapsing and expanding long blocks of text
 # [Demo](http://dsekon.ru/dReadmore/ "Demo")
 ## Getting Started With dReadmore.js
