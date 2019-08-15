@@ -54,7 +54,8 @@ Let's look on list of all available parameters:
 
 Example:
 
-    $(".d-readmore").dReadmore({
+```javascript
+$(".d-readmore").dReadmore({
         id: 3,
         startOpen: true,
         moreText: "Down",
@@ -62,25 +63,31 @@ Example:
         duration: 300,
         timing: "cubic-bezier(0.42,0,0.58,1)"
     });
+```
 
 ### Callbacks
 After that we need to include dReadmore JS file to our website. In your html file:
 
+```javascript
+$(".d-readmore").dReadmore({
     // beforeToggle called after a more or less link is clicked, 
     // but before the block is collapsed or expanded
-    beforeToggle: function($element, expanded {
+    beforeToggle: function($element, expanded) {
         if (!expanded) {
             console.log("true")
         }
-    }
-    
+    },
+
     // afterToggle called after the block is collapsed or expanded
     afterToggle: function($element, expanded) {
         if (expanded) {
             console.log("true")
         }
     }
+});
+```
 ### Destroy
 If you really want to be that guy...
-
-    $(".d-readmore").dReadmore('destroy');
+```javascript
+$(".d-readmore").dReadmore('destroy');
+```
