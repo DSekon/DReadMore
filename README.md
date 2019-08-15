@@ -1,6 +1,6 @@
 # [dReadMore by DSekon](http://dsekon.ru/dReadmore/ "dReadMore by DSekon")
 #### jQuery plugin for collapsing and expanding long blocks of text
-# [Demo](http://dsekon.ru/dReadmore/ "Demo")
+### [Demo](http://dsekon.ru/dReadmore/ "Demo")
 ## Getting Started With dReadmore.js
 ### Include Files To Website
 
