@@ -91,3 +91,10 @@ If you really want to be that guy...
 ```javascript
 $(".d-readmore").dReadmore('destroy');
 ```
+
+Aaaaaand you can disable in CSS :D
+```css
+.d-readmore {
+    min-height: 0px;
+}
+```
