@@ -43,7 +43,7 @@ Set a **min-height** based on lines, you could do so in CSS: **1px - 1 line**
 Let's look on list of all available parameters:
 
 | Parameter | Type | Default | Description |
-| ------------- | ------------- | :-------------: | ------------- |
+| ------------- | ------------- | :------------------ | ------------- |
 | id | string | "d-readmore-" + i | Assigned to a text container.<br />i - it's a number in order |
 | startOpen | boolean | false | Set to <b>true</b> and the text will be expanded at the start |
 | moreText | string | "Show more" | The text of the button when the collapsed text |
