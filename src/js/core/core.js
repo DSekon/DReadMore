@@ -139,7 +139,7 @@ export default class DReadMore {
     init() {
         let drm = this;
         const el = drm.params.el;
-console.log(el)
+
         if (!el) return false;
           
         if (drm.initialized) return drm;
