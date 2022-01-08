@@ -1,4 +1,4 @@
-.d-readmore {
+.dreadmore {
   min-height: 2px;
   line-height: 1.5;
   -webkit-transition: height 0.2s;
@@ -8,6 +8,6 @@
   overflow: hidden;
 }
 
-.d-readmore--disabled {
+.dreadmore--disabled {
   display: none;
 }

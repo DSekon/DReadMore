@@ -22,14 +22,14 @@ After that we need to include DReadMore JS file to our website. In your html fil
 </head>
 <body>
     ...
-    <script src="path/to/DReadMore.min.js"></script>
+    <script src="path/to/dreadmore.min.js"></script>
 </body>
 </html>
 ```
 ### Add HTML Layout
 Now, we need to add basic DReadMore layout:
 ```html
-<div class="d-readmore">
+<div class="dreadmore">
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque
     laudantiumquo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste
     dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae
@@ -42,13 +42,13 @@ Now, we need to add basic DReadMore layout:
 ### Add CSS Styles
 After that, we may need to set DReadMore min-height and overflow in your CSS file:
 ```css
-.d-readmore {
+.dreadmore {
     min-height: 2px;
     overflow: hidden;
 }
 
 /* for a disabled toggler */
-.d-readmore--disabled {
+.dreadmore--disabled {
     display: none;
 }
 ```
@@ -102,7 +102,7 @@ dreadmore.destroy();
 ### Disable
 Aaaaaand you can disable in CSS :D
 ```css
-.d-readmore {
+.dreadmore {
     min-height: 0px;
 }
 ```

@@ -21,7 +21,7 @@ export default class DReadMore {
 
         if (!params) params = {};
         if (el && !params.el) params.el = el;
-        if (!params.el) params.el = '.d-readmore';
+        if (!params.el) params.el = '.dreadmore';
 
         if (params.el && selectorAll(params.el).length > 1) {
             const drms = [];
@@ -59,7 +59,10 @@ export default class DReadMore {
 
     togglerEventListener = (e) => {
         const drm = this;
-        const { el, toggler } = drm.params;
+        const {
+            el,
+            toggler
+        } = drm.params;
         const isExpanded = !drm.isExpanded;
 
         if (drm.params.beforeToggle && typeof drm.params.beforeToggle === 'function') {
@@ -100,7 +103,10 @@ export default class DReadMore {
 
         if (!drm || drm.destroyed) return;
 
-        const { el, toggler } = drm.params;
+        const {
+            el,
+            toggler
+        } = drm.params;
 
         const minHeight = parseFloat(css(el).minHeight);
         const height = parseFloat(css(el.childNodes[0]).height);
@@ -121,19 +127,21 @@ export default class DReadMore {
 
             el.style.height = drm.params.isInitialExpandWhenUpdate || drm.isExpanded ? drm.heightExpanded : drm.heightDefault;
 
-            if (toggler.classList.contains('d-readmore--disabled')) {
-                toggler.classList.remove('d-readmore--disabled');
+            if (toggler.classList.contains('dreadmore--disabled')) {
+                toggler.classList.remove('dreadmore--disabled');
             }
         } else {
             el.style.height = null;
-            toggler.classList.add('d-readmore--disabled');
+            toggler.classList.add('dreadmore--disabled');
         }
     }
 
     init() {
         let drm = this;
         const el = drm.params.el;
-
+console.log(el)
+        if (!el) return false;
+          
         if (drm.initialized) return drm;
 
         el.innerHTML = `<div>${el.innerHTML.trim()}</div>`;
