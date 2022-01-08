@@ -1,8 +1,16 @@
-# [dReadMore by DSekon](https://dreadmore.dsekon.com "DReadMore by DSekon")
-[![GitHub version](https://badge.fury.io/gh/DSekon%2FDReadMore.svg)](https://github.com/DSekon/DReadMore)
+# [DReadMore by DSekon](https://dreadmore.dsekon.com "DReadMore by DSekon")
+<p align="center">
+  <a href="https://github.com/DSekon/DReadMore/releases">
+    <img src="https://badgen.net/github/release/DSekon/DReadMore" alt="Release version"/>
+  </a>
+</p>
+<p align="center">
+	<a href="https://www.buymeacoffee.com/DSekon" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 214px !important;" ></a>
+</p>
+
 #### The plugin for collapsing and expanding long blocks of text
 ### [Demo](https://dreadmore.dsekon.com "Demo")
-## Getting Started With DReadMore.js
+## Getting Started With DReadMore
 ### Include Files To Website
 
 After that we need to include DReadMore JS file to our website. In your html file:
@@ -22,7 +30,10 @@ After that we need to include DReadMore JS file to our website. In your html fil
 Now, we need to add basic DReadMore layout:
 ```html
 <div class="d-readmore">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantium quo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas!
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque
+    laudantiumquo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste
+    dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae
+    similique neque nostrum consequatur maiores quas!
 </div>
 <button type="button"
         data-drm-toggler>Show more</button>
@@ -36,7 +47,7 @@ After that, we may need to set DReadMore min-height and overflow in your CSS fil
     overflow: hidden;
 }
 
-// for a disabled toggler
+/* for a disabled toggler */
 .d-readmore--disabled {
     display: none;
 }
@@ -50,16 +61,17 @@ Let's look on list of all available parameters:
 | ------------- | ------------- | :------------- | ------------- |
 | initialExpand | boolean | false | Set to <b>true</b> and the text will be expanded at the start |
 | isInitialExpandWhenUpdate | boolean | false | Returns in the original state specified in startOpen when the screen is resized |
-| moreText | string | "Show more" | The text of the button when the collapsed text |
-| lessText | string | "Close" | The text of the button when the expanded text |
+| moreText | string | 'Show&nbsp;more' | The text of the button when the collapsed text |
+| lessText | string | 'Close' | The text of the button when the expanded text |
 
 Example:
 
 ```javascript
 const dreadmore = new DReadMore({
-    startOpen: true,
-    moreText: "Down",
-    lessText: "Up"
+    initialExpand: true,
+	isInitialExpandWhenUpdate: true,
+    moreText: 'Show more',
+    lessText: 'Up'
 });
 ```
 
