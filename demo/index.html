@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+    <title>DReadMore by DSekon</title>
+    <link href="../dist/css/d-readmore.min.css"
+          rel="stylesheet"
+          type="text/css">
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 30px;
+            min-height: 100vh;
+            font-family: Inter, sans-serif;
+            color: #fff;
+            background-color: #131313;
+        }
+
+        .container {
+            max-width: 100%;
+        }
+
+        .item {
+            margin-bottom: 30px;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .d-readmore {
+            margin-bottom: .3em;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 0;
+            font-weight: 700;
+            color: #365edc;
+            background-color: transparent;
+            border: 0;
+        }
+
+        @media screen and (max-width: 767px) {
+            .item:first-of-type .d-readmore {
+                min-height: 0px;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div class="item">
+            <div class="d-readmore">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantium quo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas!
+            </div>
+            <button type="button"
+                    data-drm-toggler>Show more</button>
+        </div>
+        <div class="item">
+            <div class="d-readmore">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum adipisci commodi optio nostrum voluptates possimus? Repellendus, sapiente? Unde minus tenetur ab quos blanditiis et cum esse doloremque! Ut quos necessitatibus aspernatur quidem iure laboriosam consectetur eligendi ducimus rem, doloribus amet similique iusto error suscipit! Porro tempore explicabo dolor recusandae nobis.
+            </div>
+            <button type="button"
+                    data-drm-toggler>Show more</button>
+        </div>
+        <div class="item">
+            <div class="d-readmore">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum adipisci commodi optio nostrum voluptates possimus? Repellendus, sapiente? Unde minus tenetur ab quos blanditiis et cum esse doloremque! Ut quos necessitatibus aspernatur quidem iure laboriosam consectetur eligendi ducimus rem, doloribus amet similique iusto error suscipit! Porro tempore explicabo dolor recusandae nobis.
+            </div>
+            <button type="button"
+                    data-drm-toggler>Show more</button>
+        </div>
+    </div>
+
+    <script src="../dist/js/d-readmore.min.js"></script>
+    <script>
+        const dReadMore = new DReadMore();
+
+        window.addEventListener('resize', function() {
+            dReadMore.forEach(function(item) {
+                item.update();
+            });
+        });
+
+        dReadMore[1].destroy();
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+.d-readmore {
+    min-height: 2px;
+    line-height: 1.5;
+    transition: height .2s;
+    overflow: hidden;
+
+    &--disabled {
+        display: none;
+    }
+}

@@ -1,11 +1,11 @@
-# [dReadMore by DSekon](http://dsekon.ru/dReadmore/ "dReadMore by DSekon")
-[![GitHub version](https://badge.fury.io/gh/DSekon%2FdReadmore.svg)](https://github.com/DSekon/dReadmore)
-#### jQuery plugin for collapsing and expanding long blocks of text
-### [Demo](http://dsekon.ru/dReadmore/ "Demo")
-## Getting Started With dReadmore.js
+# [dReadMore by DSekon](https://dreadmore.dsekon.com "DReadMore by DSekon")
+[![GitHub version](https://badge.fury.io/gh/DSekon%2FDReadMore.svg)](https://github.com/DSekon/DReadMore)
+#### The plugin for collapsing and expanding long blocks of text
+### [Demo](https://dreadmore.dsekon.com "Demo")
+## Getting Started With DReadMore.js
 ### Include Files To Website
 
-After that we need to include dReadmore JS file to our website. In your html file:
+After that we need to include DReadMore JS file to our website. In your html file:
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -14,29 +14,31 @@ After that we need to include dReadmore JS file to our website. In your html fil
 </head>
 <body>
     ...
-    <script src="path/to/dReadmore.min.js"></script>
+    <script src="path/to/DReadMore.min.js"></script>
 </body>
 </html>
 ```
 ### Add HTML Layout
-Now, we need to add basic dReadmore layout:
+Now, we need to add basic DReadMore layout:
 ```html
-<div class="d-readmore-wrapp">
-    <div class="d-readmore">Lorem Ipsum is simply dummy text of
-    the printing and typesetting industry. Lorem Ipsum has been
-    the industry's standard dummy text ever since the 1500s, when
-    an unknown printer took a galley of type and scrambled it
-    to make a type specimen book.</div>
-    <span class="d-readmore_btn"></span>
+<div class="d-readmore">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantium quo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas!
 </div>
+<button type="button"
+        data-drm-toggler>Show more</button>
 ```
 
 ### Add CSS Styles
-After that, we may need to set dReadmore min-height and overflow in your CSS file:
+After that, we may need to set DReadMore min-height and overflow in your CSS file:
 ```css
 .d-readmore {
     min-height: 2px;
     overflow: hidden;
+}
+
+// for a disabled toggler
+.d-readmore--disabled {
+    display: none;
 }
 ```
 Set a **min-height** based on lines, you could do so in CSS: **1px - 1 line**
@@ -46,54 +48,46 @@ Let's look on list of all available parameters:
 
 | Parameter | Type | Default | Description |
 | ------------- | ------------- | :------------- | ------------- |
-| id | string | "d-readmore-" + i | Assigned to a text container.<br />i - it's a number in order |
-| startOpen | boolean | false | Set to <b>true</b> and the text will be expanded at the start |
+| initialExpand | boolean | false | Set to <b>true</b> and the text will be expanded at the start |
+| isInitialExpandWhenUpdate | boolean | false | Returns in the original state specified in startOpen when the screen is resized |
 | moreText | string | "Show more" | The text of the button when the collapsed text |
 | lessText | string | "Close" | The text of the button when the expanded text |
-| duration | number | 250 | In <b>milliseconds</b>. The animation speed of expand and collapse |
-| timing | string | "ease" | Tranisition timing function |
-| returnInitialState | boolean | false | Returns in the original state specified in startOpen when the screen is resized |
 
 Example:
 
 ```javascript
-$(".d-readmore").dReadmore({
-    id: 3,
+const dreadmore = new DReadMore({
     startOpen: true,
     moreText: "Down",
-    lessText: "Up",
-    duration: 300,
-    timing: "cubic-bezier(0.42,0,0.58,1)"
+    lessText: "Up"
 });
 ```
 
 ### Callbacks
-After that we need to include dReadmore JS file to our website. In your html file:
+After that we need to include DReadMore JS file to our website. In your html file:
 
 ```javascript
-$(".d-readmore").dReadmore({
+const dreadmore = new DReadMore({
     // beforeToggle called after a more or less link is clicked, 
     // but before the block is collapsed or expanded
     beforeToggle: function($element, expanded) {
-        if (!expanded) {
-            console.log("true")
-        }
+        console.log($element, expanded)
     },
 
     // afterToggle called after the block is collapsed or expanded
     afterToggle: function($element, expanded) {
-        if (expanded) {
-            console.log("true")
-        }
+        console.log($element, expanded)
     }
 });
 ```
+
 ### Destroy
 If you really want to be that guy...
 ```javascript
-$(".d-readmore").dReadmore('destroy');
+dreadmore.destroy();
 ```
 
+### Disable
 Aaaaaand you can disable in CSS :D
 ```css
 .d-readmore {
