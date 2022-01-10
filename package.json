@@ -1,0 +1,42 @@
+{
+    "name": "dreadmore",
+    "version": "2.0.2",
+    "description": "The plugin for collapsing and expanding long blocks of text",
+    "scripts": {
+        "build": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DSekon/DReadMore.git"
+    },
+    "keywords": [
+        "dreadmore",
+        "readmore",
+        "javascript",
+        "html",
+        "css"
+    ],
+    "author": "DSekon",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/DSekon/DReadMore/issues"
+    },
+    "homepage": "https://dreadmore.dsekon.com/",
+    "funding": [{
+        "type": "buymeacoffee",
+        "url": "https://www.buymeacoffee.com/DSekon"
+    }],
+    "engines": {
+        "node": ">= 4.7.0"
+    },
+    "devDependencies": {
+        "@babel/plugin-transform-modules-commonjs": "^7.16.7",
+        "@babel/preset-env": "^7.16.7",
+        "babel-loader": "^8.2.3",
+        "terser-webpack-plugin": "^5.3.0"
+    },
+    "dependencies": {
+        "webpack": "^5.65.0",
+        "webpack-cli": "^4.9.1"
+    }
+}
