@@ -34,7 +34,7 @@ module.exports = {
     entry: './src/js/core/core.js',
     output: {
         filename: 'dreadmore.min.js',
-        path: path.resolve(__dirname, 'dist/js'),
+        path: path.resolve(__dirname, 'dist'),
         libraryTarget: 'umd',
         globalObject: 'this'
     },
