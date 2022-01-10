@@ -22,7 +22,7 @@ After that we need to include DReadMore JS file to our website. In your html fil
 </head>
 <body>
     ...
-    <script src="path/to/dreadmore.min.js"></script>
+    <script src="https://unpkg.com/dreadmore@2/dist/dreadmore.min.js"></script>
 </body>
 </html>
 ```
