@@ -1,7 +1,7 @@
 {
     "name": "dreadmore",
-    "version": "2.0.3",
-    "description": "The plugin for collapsing and expanding long blocks of text",
+    "version": "2.0.4",
+    "description": "The plugin for collapsing and expanding long blocks of text. You can DISABLE it using CSS!",
     "scripts": {
         "build": "webpack"
     },
@@ -21,7 +21,7 @@
     "bugs": {
         "url": "https://github.com/DSekon/DReadMore/issues"
     },
-    "homepage": "https://dreadmore.dsekon.com/",
+    "homepage": "https://dreadmore.dsekon.com",
     "funding": [
         {
             "type": "buymeacoffee",

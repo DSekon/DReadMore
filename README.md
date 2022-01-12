@@ -8,7 +8,7 @@
 	<a href="https://www.buymeacoffee.com/DSekon" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 214px !important;" ></a>
 </p>
 
-#### The plugin for collapsing and expanding long blocks of text
+#### The plugin for collapsing and expanding long blocks of text. You can DISABLE it using CSS!
 ### [Demo](https://dreadmore.dsekon.com "Demo")
 ## Getting Started With DReadMore
 ### Include Files To Website
@@ -69,7 +69,7 @@ Example:
 ```javascript
 const dreadmore = new DReadMore({
     initialExpand: true,
-	isInitialExpandWhenUpdate: true,
+    isInitialExpandWhenUpdate: true,
     moreText: 'Show more',
     lessText: 'Up'
 });
@@ -91,6 +91,11 @@ const dreadmore = new DReadMore({
         console.log($element, expanded)
     }
 });
+```
+
+### Update
+```javascript
+dreadmore.update();
 ```
 
 ### Destroy
