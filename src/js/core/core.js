@@ -1,5 +1,6 @@
 import {
     css,
+    lh,
     deleteProps,
     selectorAll
 } from '../shared/utils'
@@ -57,6 +58,46 @@ export default class DReadMore {
         return drm;
     }
 
+    calcTags(rows, fontSize) {
+        const drm = this;
+        const el = drm.params.el;
+        let heightDefault = 0;
+
+        let child = undefined;
+        let childCSS = undefined;
+        let childPrevMarginBottom = 0;
+        let childMarginTop = 0;
+        let childHeight = 0;
+        let childLineHeight = 0;
+        let childRows = 0;
+
+        for (let i = 0, j = 0; i < rows && el.childNodes[j]; j++) {
+            child = el.childNodes[j];
+
+            if (child.outerHTML) {
+                childCSS = css(child);
+                childMarginTop = parseFloat(childCSS.marginTop);
+                childHeight = parseFloat(css(child).height);
+                childLineHeight = lh(child);
+                childRows = childHeight / childLineHeight;
+
+                if (heightDefault + childRows <= rows) {
+                    i += childRows;
+                    heightDefault += childHeight / fontSize;
+                    
+                } else {
+                    heightDefault += (rows - i) * childLineHeight / fontSize;
+                }
+
+                heightDefault += (childMarginTop > childPrevMarginBottom ? childMarginTop : childPrevMarginBottom) / fontSize;
+
+                childPrevMarginBottom = parseFloat(childCSS.marginBottom);
+            }
+        }
+
+        return [heightDefault, heightDefault * fontSize + parseFloat(css(el.childNodes[el.childNodes.length - 1]).marginBottom)];
+    }
+
     togglerEventListener = (e) => {
         const drm = this;
         const {
@@ -108,20 +149,30 @@ export default class DReadMore {
             toggler
         } = drm.params;
 
-        const minHeight = parseFloat(css(el).minHeight);
+        el.innerHTML = `<div class="${el.classList.value}" style="display: inline-block !important;">${el.innerHTML.trim()}</div>`;
+
+        const rows = parseFloat(css(el).minHeight);
         const height = parseFloat(css(el.childNodes[0]).height);
         const fontSize = parseFloat(css(el).fontSize);
-        let lineHeight = css(el).lineHeight;
+        let lineHeight = lh(el);
+        let heightDefault = 0;
+        let minHeight = rows * lineHeight;
 
-        if (lineHeight !== 'normal') {
-            lineHeight = parseFloat(lineHeight);
-        } else {
-            lineHeight = fontSize * 1.25;
+        el.innerHTML = el.childNodes[0].innerHTML;
+
+        if (el.childNodes[0].tagName) {
+            drm.mode = 'tags';
         }
 
-        if (minHeight && height > minHeight * lineHeight) {
+        if (drm.mode === 'tags') {
+            [heightDefault, minHeight] = drm.calcTags(rows, fontSize);
+        } else {
+            heightDefault = minHeight / fontSize;
+        }
+
+        if (rows && height > minHeight) {
             drm = Object.assign(drm, {
-                heightDefault: `${minHeight * lineHeight / fontSize}em`,
+                heightDefault: `${heightDefault}em`,
                 heightExpanded: `${height / fontSize}em`
             });
 
@@ -141,10 +192,8 @@ export default class DReadMore {
         const el = drm.params.el;
 
         if (!el) return false;
-          
-        if (drm.initialized) return drm;
 
-        el.innerHTML = `<div>${el.innerHTML.trim()}</div>`;
+        if (drm.initialized) return drm;
 
         drm.isExpanded = drm.params.initialExpand;
 
@@ -172,7 +221,6 @@ export default class DReadMore {
         drm.initialized = false;
 
         el.removeAttribute('style');
-        el.innerHTML = el.childNodes[0].innerHTML;
         toggler.removeEventListener('click', drm.togglerEventListener);
 
         if (deleteInstance) {

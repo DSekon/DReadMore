@@ -1,5 +1,17 @@
-function css($el) {
-    return window.getComputedStyle($el, null)
+function css(el) {
+    return window.getComputedStyle(el, null)
+}
+
+function lh(el) {
+    let lineHeight = css(el).lineHeight;
+
+    if (lineHeight !== 'normal') {
+        lineHeight = parseFloat(lineHeight);
+    } else {
+        lineHeight = parseFloat(css(el).fontSize) * 1.25;
+    }
+
+    return lineHeight;
 }
 
 function deleteProps(obj) {
@@ -29,6 +41,7 @@ function selectorAll(selector) {
 
 export {
     css,
+    lh,
     deleteProps,
     selectorAll
 }
