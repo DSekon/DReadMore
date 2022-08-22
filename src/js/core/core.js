@@ -81,13 +81,13 @@ export default class DReadMore {
                 childLineHeight = lh(child);
                 childRows = childHeight / childLineHeight;
 
-                i += childRows;
-
-                if (i <= rows) {
+                if (i + childRows <= rows) {
                     heightDefault += childHeight / fontSize;
                 } else {
-                    heightDefault += (i - rows) * childLineHeight / fontSize;
+                    heightDefault += (rows - i) * childLineHeight / fontSize;
                 }
+
+                i += childRows;
 
                 heightDefault += (childMarginTop > childPrevMarginBottom ? childMarginTop : childPrevMarginBottom) / fontSize;
 

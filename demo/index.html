@@ -73,6 +73,7 @@
             <button type="button"
                     data-drm-toggler>Show more</button>
         </div>
+
         <div class="item">
             <div class="dreadmore">
                 [disabled] Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum adipisci commodi optio nostrum voluptates possimus? Repellendus, sapiente? Unde minus tenetur ab quos blanditiis et cum esse doloremque! Ut quos necessitatibus aspernatur quidem iure laboriosam consectetur eligendi ducimus rem, doloribus amet similique iusto error suscipit! Porro tempore explicabo dolor recusandae nobis.
@@ -80,12 +81,54 @@
             <button type="button"
                     data-drm-toggler>Show more</button>
         </div>
+
         <div class="item">
             <div class="dreadmore">
                 <h2>Lorem ipsum dolor sit amet.</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum delectus tempora harum.</p>
                 <p>1Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum delectus tempora harum.</p>
                 <p>1Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum delectus tempora harum.</p>
+            </div>
+            <button type="button"
+                    data-drm-toggler>Show more</button>
+        </div>
+
+        <div class="item">
+            <div class="dreadmore">
+                <p><strong>2 child paragraphs - less then visible 4 lines</strong> ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantiumquo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas!</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantiumquo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas!</p>
+            </div>
+            <button type="button"
+                    data-drm-toggler>Show more</button>
+        </div>
+
+        <div class="item">
+            <div class="dreadmore">
+                <p><strong>br tags - more then visible 4 lines</strong> ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantiumquo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas!<br><br>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantiumquo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil.<br>Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas!</p>
+            </div>
+            <button type="button"
+                    data-drm-toggler>Show more</button>
+        </div>
+
+        <div class="item">
+            <div class="dreadmore">
+                no child elements, works perfectly ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantiumquo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantiumquo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas!
+            </div>
+            <button type="button"
+                    data-drm-toggler>Show more</button>
+        </div>
+
+        <!-- <div class="item">
+            <div class="dreadmore">
+                <strong>strong child element, not working at all</strong>, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantiumquo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantiumquo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas!
+            </div>
+            <button type="button"
+                    data-drm-toggler>Show more</button>
+        </div> -->
+
+        <div class="item">
+            <div class="dreadmore">
+                <p><strong>p child element, not working at all</strong>, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantiumquo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit recusandae quas eaque laudantiumquo, dolorem vitae quia cupiditate sit, exercitationem suscipit molestiae iste dolores eos facere mollitia voluptatibus nihil. Dicta ex blanditiis officiis beatae similique neque nostrum consequatur maiores quas!</p>
             </div>
             <button type="button"
                     data-drm-toggler>Show more</button>
@@ -103,6 +146,12 @@
         });
 
         dReadMore[1].destroy();
+
+        window.onload = function() {
+            dReadMore.forEach(function(item) {
+                item.update();
+            });
+        }
     </script>
 </body>
 
