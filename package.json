@@ -1,6 +1,6 @@
 {
     "name": "dreadmore",
-    "version": "2.1.1",
+    "version": "2.1.4",
     "description": "The plugin for collapsing and expanding long blocks of text. You can DISABLE it using CSS!",
     "main": "dist/dreadmore.min.js",
     "scripts": {
@@ -12,10 +12,17 @@
     },
     "keywords": [
         "dreadmore",
+        "dreadmore.js",
         "readmore",
+        "readmore.js",
+        "more",
+        "less",
+        "native",
         "javascript",
         "html",
-        "css"
+        "css",
+        "plugin",
+        "dsekon"
     ],
     "author": "DSekon",
     "license": "MIT",
