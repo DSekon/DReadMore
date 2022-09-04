@@ -1,6 +1,7 @@
 import {
     css,
     lh,
+    stringToObj,
     deleteProps,
     selectorAll
 } from '../shared/utils'
@@ -40,6 +41,7 @@ export default class DReadMore {
         }
 
         const drm = this;
+        let paramsAttrs = stringToObj(params.el.getAttribute('data-drm'));
 
         drm.params = Object.assign({
             initialExpand: false,
@@ -51,7 +53,7 @@ export default class DReadMore {
             // callbacks
             beforeToggle: function() {},
             afterToggle: function() {}
-        }, params);
+        }, params, paramsAttrs);
 
         drm.init();
 
@@ -112,10 +114,14 @@ export default class DReadMore {
 
         drm.isExpanded = isExpanded;
 
-        toggler.setAttribute('aria-expanded', isExpanded);
-        el.classList.toggle('active')
+        toggler.forEach(function(item) {
+            item.setAttribute('aria-expanded', isExpanded);
 
-        toggler.innerHTML = isExpanded ? drm.params.lessText : drm.params.moreText;
+            item.innerHTML = isExpanded ? drm.params.lessText : drm.params.moreText;
+        });
+
+        el.classList.toggle('active');
+
         el.style.height = isExpanded ? drm.heightExpanded : drm.heightDefault;
 
         if (drm.params.afterToggle && typeof drm.params.afterToggle === 'function') {
@@ -129,14 +135,18 @@ export default class DReadMore {
         let toggler;
 
         if (!drm.params.toggler && el.nextElementSibling.hasAttribute('data-drm-toggler')) {
-            drm.params.toggler = el.nextElementSibling;
+            drm.params.toggler = [el.nextElementSibling];
+        } else if (drm.params.toggler) {
+            drm.params.toggler = document.querySelectorAll(`[data-drm-toggler="${drm.params.toggler}"]`);
         }
 
         toggler = drm.params.toggler;
 
-        toggler.setAttribute('aria-expanded', drm.isExpanded)
+        toggler.forEach(function(item) {
+            item.setAttribute('aria-expanded', drm.isExpanded);
 
-        toggler.addEventListener('click', drm.togglerEventListener);
+            item.addEventListener('click', drm.togglerEventListener);
+        });
     }
 
     update() {
@@ -178,12 +188,17 @@ export default class DReadMore {
 
             el.style.height = drm.params.isInitialExpandWhenUpdate || drm.isExpanded ? drm.heightExpanded : drm.heightDefault;
 
-            if (toggler.classList.contains('dreadmore--disabled')) {
-                toggler.classList.remove('dreadmore--disabled');
-            }
+            toggler.forEach(function(item) {
+                if (item.classList.contains('dreadmore--disabled')) {
+                    item.classList.remove('dreadmore--disabled');
+                }
+            });
         } else {
             el.style.height = null;
-            toggler.classList.add('dreadmore--disabled');
+
+            toggler.forEach(function(item) {
+                item.classList.add('dreadmore--disabled');
+            });
         }
     }
 
@@ -221,7 +236,10 @@ export default class DReadMore {
         drm.initialized = false;
 
         el.removeAttribute('style');
-        toggler.removeEventListener('click', drm.togglerEventListener);
+
+        toggler.forEach(function(item) {
+            item.removeEventListener('click', drm.togglerEventListener);
+        });
 
         if (deleteInstance) {
             deleteProps(drm);

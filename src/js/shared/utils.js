@@ -14,6 +14,23 @@ function lh(el) {
     return lineHeight;
 }
 
+function stringToObj(string) {
+    if (string && string !== '') {
+        const array = string.split(',');
+        let obj = {};
+
+        array.forEach(function(item) {
+            const itemArray = item.split(':');
+
+            obj[itemArray[0].trim()] = itemArray[1].trim();
+        });
+
+        return obj;
+    }
+
+    return {};
+}
+
 function deleteProps(obj) {
     const object = obj;
 
@@ -42,6 +59,7 @@ function selectorAll(selector) {
 export {
     css,
     lh,
+    stringToObj,
     deleteProps,
     selectorAll
 }

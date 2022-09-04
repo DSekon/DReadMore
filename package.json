@@ -1,6 +1,6 @@
 {
     "name": "dreadmore",
-    "version": "2.1.6",
+    "version": "2.2.0",
     "description": "The plugin for collapsing and expanding long blocks of text. You can DISABLE it using CSS!",
     "main": "dist/dreadmore.min.js",
     "scripts": {
@@ -16,7 +16,8 @@
         "readmore",
         "readmore.js",
         "more",
-        "less",
+        "sass",
+        "scss",
         "native",
         "javascript",
         "html",
@@ -30,12 +31,10 @@
         "url": "https://github.com/DSekon/DReadMore/issues"
     },
     "homepage": "https://dreadmore.dsekon.com",
-    "funding": [
-        {
-            "type": "buymeacoffee",
-            "url": "https://www.buymeacoffee.com/DSekon"
-        }
-    ],
+    "funding": [{
+        "type": "donationalerts",
+        "url": "https://www.donationalerts.com/r/dsekon"
+    }],
     "engines": {
         "node": ">= 4.7.0"
     },
@@ -43,6 +42,7 @@
         "@babel/plugin-transform-modules-commonjs": "^7.16.7",
         "@babel/preset-env": "^7.16.7",
         "babel-loader": "^8.2.3",
+        "copy-webpack-plugin": "^11.0.0",
         "terser-webpack-plugin": "^5.3.0"
     },
     "dependencies": {
