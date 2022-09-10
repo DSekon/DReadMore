@@ -41,7 +41,7 @@ export default class DReadMore {
         }
 
         const drm = this;
-        let paramsAttrs = stringToObj(params.el.getAttribute('data-drm'));
+        let paramsAttrs = params.el ? stringToObj(params.el.getAttribute('data-drm')) : {};
 
         drm.params = Object.assign({
             initialExpand: false,
