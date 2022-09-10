@@ -117,7 +117,7 @@ export default class DReadMore {
         toggler.forEach(function(item) {
             item.setAttribute('aria-expanded', isExpanded);
 
-            item.innerHTML = isExpanded ? drm.params.lessText : drm.params.moreText;
+            item.innerHTML = isExpanded ? item.getAttribute('data-drm-toggler-less') || drm.params.lessText : item.getAttribute('data-drm-toggler-more') || drm.params.moreText;
         });
 
         el.classList.toggle('active');

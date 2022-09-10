@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
 const TerserPlugin = require('terser-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 function createBanner() {
     var pkg = JSON.parse(fs.readFileSync('./package.json'));
@@ -65,13 +64,6 @@ module.exports = {
         new webpack.BannerPlugin({
             banner: createBanner,
             entryOnly: false
-        }),
-        new CopyWebpackPlugin({
-            patterns: [{
-                    from: 'dist/dreadmore.min.js',
-                    to: '../npm'
-                }
-            ],
-        }),
-    ],
+        })
+    ]
 }
